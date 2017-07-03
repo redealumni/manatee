@@ -24,7 +24,8 @@ module Manatee
       end
 
       def self.subscribe(environment)
-        environment.register_engine '.jsh', Manatee::Sprockets::JshProcessor, mime_type: 'application/javascript'
+        environment.register_mime_type 'application/javascript', extensions: ['.jsh']
+        environment.register_transformer '.jsh', Manatee::Sprockets::JshProcessor, mime_type: 'application/javascript'
       end
     end
   end
