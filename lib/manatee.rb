@@ -84,7 +84,7 @@ module Manatee
     if defined? Rails
       ::Rails.application.assets
     else
-      @assets = Manatee.config{ |c| c.assets = ::Rails.application.config.assets }
+      @assets or raise("Manatee's Sprockets environment is not configured, call: Manatee.config{ |c| c.assets = sprockets_environment }")
     end
   end
 
